@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for field in form %}
+    <div class="form-group" align="center">
+        <div class="col-sm-offset-2 col-sm-10" align="center">
+            <span class="text-danger small">{{ field.errors }}</span>
+        </div>
+        <label class="control-label col sm-2" align="center">
+            {{field.label_tag}}  <!-- name -->
+        </label>
+
+        <div class="col-sm-10" align="center">{{ field }}</div>  <!-- input field -->
+    </div>
+{% endfor %}
+</body>
+</html>

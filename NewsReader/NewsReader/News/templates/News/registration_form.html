@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>News Reader</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<style>
+    body{margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+    }
+ .login-box{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    border: 3px solid;
+    padding: 20px
+
+    transform: translate(-50%,-50%);
+    color: white;
+    background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFhUXFRcXFRUVFRcVFRUWFhUXFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDgsNDw0NGisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAMIBAwMBIgACEQEDEQH/xAAbAAADAQEBAQEAAAAAAAAAAAAAAQIDBQYHBP/EACgQAQEBAQABAgUEAwEBAAAAAAABAhFBEvAxUWFxgSGRseGhwdHxA//EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD5tBwHAKjg4QGBwdA+FB0wFJSQFIHIBA+D4AOA+laCacBgVgMuAAABWJq6jQM9J00rPUBlUVppnQZ1FXpFAgAAAAO0dAAQjKAD4DAhr5HwcBJ07CAlcI+ARnE2AC4fR9QKFxVAAofv+xQICQALE2KTQZ1nprpnsGWmemmkaBlU1WkUCAAAAA7liTEvv6AKAAPgkOGAkLiuCAkdMAUEFh9AcLhgEHzyqkCRxacgmHwGCeGdggJTV1OgZ2M9NNItBlpnpppnoGVRWlRQSAAAAB2/fAdAADh5gBXCigBGVAEqfuXpASeTkEn7KBJHRwCEMe//AACpHw7ARDPSbAIoriZP1AWJVU0EaZ6jTTPQMtM9NNM9AzqKuooJAAAAA7kOK4XALihIdoAQ6JAA4BwADE/wAsBgE+/qOnwAmiQ5D/AFIVVwcAohdHARYOK9PyTQTYmtNRlugjTPTSxlQZ6Zaa6ZaBFRV1FBIAAAAHfip9yKAcEhiUBRDlAD3wQc9+TgCgX5GBcPn7CHQKwpFK/kGYq8wqCLDhigXC4qQUEcFhkCbGe425xlqAysZbbaZagMdM9NNM9Ayqaus6BAAAAAehLgOAZUQwEpwjAdOErgD0inmABkc/sQgHBDhgVl8gU8gXCookAtC0+I0AKq4OAjSNNGegZaZaa6ZaBjpnprploGekVdRQSDIAAAeg57+ZyAAIqwqYDhyDigIQ+GAOEIA4BwADyXTAqXFCygdKfYrCoDXyTTqQFhKpQCrLda6rPYMdMttdMtAy0y000z0DOoq9IoJBgCAAPRcKRVKQD6IJCkBXVSpUBgeo7f8gRwcPgESoPSBQAAJC1eqpSAjfT/AIOkA4QH5+4Cnz6EqAzrLUbaZboMdRjqN/8A6MNwGWmWmmmegZ6RV6RQSDIAAAejFEvgdBWR5/UuKoKRVcHQGaB5GQOLk5EcUBQ+CkAI7D4CaqZLUAJsTqNOI0COH07AAs8lP0FPgFqstNKz3kGOqx020y2DHTLTXUZagM9Iq9RFAgYBIMA9DDAyCjiVc8gOHAAA4LBAOUSHmgAR8AA7fBGAKQ7J+Bz378AVpVXU2gmkd5+SAoBaLf7AtM9xfWegZbZ6a2M7AY6ZajbURcgwsRY3uWdyDPg4v0lYCOE04Ad0+lC6C8mXT6CuHEw7QHTEMEyqlIAqUoQv8AY6cKgOlw4L9wO1NIAOlTl4VBNpdOpkAu/VNVYnVBnYixrUWAy1EWNrE3IMfSi4b3JXIMLhPpb+krkH5/SG/pAOmM+fuAC54AADP+hn4fuYAKwQAs/Bp4oAFsqABz4/ga/4AAx8KUoAEVAAod/6ADPXj7nPP5AAkgAzymgAaAAF+JZ/0ACS0ADMAA//2Q==) no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    }
+    </style>
+
+<div class="container-fluid" style="background-color: #444343;color: white;" >
+
+      <h1><center>News Reader</center></h1>
+      <h3><center>A platform for News Reader</center></h3>
+
+</div>
+
+
+
+ <div class="login-box">
+      <h1 align="center"> Register for an Account</h1>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data"  align="center">
+                        {% csrf_token %}
+                        {% include 'News/form_template.html' %}
+                        <div class="form-group" align="center">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-outline-info" style="width:30%;">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+     <h5 align="center"> Already have an account? <a href="{% url 'News:login' %}">Click here</a> to log in.</h5>
+
+</div>
+
+</body>
+</html>
