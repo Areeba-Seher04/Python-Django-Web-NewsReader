@@ -6,8 +6,7 @@ app_name ='News'
 urlpatterns = [
     #News/
     path('', views.userchannel , name='userchannel'),
-    #/News/1
-    path('<int:album_id>/', views.index , name='index'),
+    path('<int:album_id>/', views.add_channels , name='index'),
     path('list/', views.list , name='list'),
     path('detail/<int:album_id>/',views.detail,name='detail'),
     #News/register/

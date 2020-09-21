@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NewsList</title>
+    <title>NewsReader</title>
 
 </head>
 <body>
 {% extends 'News/base.html' %}
 {% block body %}
 
-
-<div class="alert alert-dark mt-5" role="alert">
-<h1 class="mt-2" style="color:#212F3D;">{{user}}'s ID: {{user.id}}</h1>
-
-
-  <h2 class="alert-heading" style="color:#212F3D;">Thanks {{user}} for adding {{a}} channel.</h2>
-
-  <hr>
-  <h5 class="mb-0" style="color:#212F3D;">Add more News Channel from <a href="{% url 'News:list' %}" class="alert-link"> here</a> and Enjoy!</h5>
-    <h5 class="mt-2" style="color:#212F3D;">Click <a href="{% url 'News:userchannel' %}" class="alert-link"> here</a> to see your channels. </h5>
-</div>
-
+	<div class="alert alert-dark mt-5" role="alert">
+		<h1 class="mt-2" style="color:#212F3D;">{{user}}'s ID: {{user.id}}</h1>
+		<h2 class="alert-heading" style="color:#212F3D;">Thanks {{user}} for adding {{channel}} channel.
+		</h2>
+		<hr>
+  		<h5 class="mb-0" style="color:#212F3D;">
+  			Add more News Channel from <a href="{% url 'News:list' %}" class="alert-link"> here</a> and Enjoy!
+  		</h5>
+    	<h5 class="mt-2" style="color:#212F3D;">Click <a href="{% url 'News:userchannel' %}" class="alert-link"> here</a> to see your channels. </h5>
+	</div>
 
 {% endblock %}
 </body>

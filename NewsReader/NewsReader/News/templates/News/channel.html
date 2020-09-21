@@ -2,41 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NewsList</title>
-
+    <title>NewsReader|All channels</title>
 </head>
+
 <body>
-{% extends 'News/base.html' %}
-{% block body %}
+    {% extends 'News/base.html' %}
+    {% block body %}
 
-
-<div class="container mt-5">
-     <div class="col-sm-12">
-         <h1 style="color:#212F3D;"><center>My Channels </center></h1>
+    <div class="container mt-5">
+        <div class="col-sm-12">
+             <h1 style="color:#212F3D;"><center>My Channels </center></h1>
         </div>
-    <div class="row">
-        {% if all_channels %}
-            {% for channel in all_channels %}
-
-
-       <div class="card col-lg-4 " style="width: 18rem;">
-           <a href="/News/detail/{{channel.id}}/">
-
-       <img src="{{channel.channel_logo.url}}"  class="img-thumbnail mt-2" alt="Responsive image" style="height:15rem;border-radius: 10%;"
-       > </a>
-         <div class="card-body"
-                <a href="/News/delete/{{channel.id}}/"><center><button class="btn btn-outline-dark" style="width:100%" type="button"> Delete </button></center></a>
-
-         </div>
+        <div class="row">
+            {% if user_channels %}
+                {% for channel in user_channels %}
+                    <div class="card col-lg-4 " style="width: 18rem;">
+                        <a href="/News/detail/{{channel.id}}/">
+                            <img src="{{channel.channel_logo.url}}"  class="img-thumbnail mt-2" alt="Responsive image" style="height:15rem;border-radius: 10%;">
+                        </a>
+                        <div class="card-body">
+                            <a href="/News/delete/{{channel.id}}/">
+                                <center><button class="btn btn-outline-dark" style="width:100%" type="button"> Delete </button></center>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h1>NO CHANNELS</h1>
+            {% endif %}
         </div>
-        {% endfor %}
-        {% else %}
-            <h1>NO CHANNELS</h1>
-        {% endif %}
     </div>
-    </div>
-
-{% endif %}
-{% endblock %}
+    {% endblock %}
 </body>
 </html>

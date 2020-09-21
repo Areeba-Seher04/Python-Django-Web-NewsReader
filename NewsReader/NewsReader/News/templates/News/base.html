@@ -15,70 +15,70 @@
 
 </head>
 <body>
-<style>
-    body{margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  <style>
+      body{margin: 0;
+      padding: 0;
+      font-family: sans-serif;
 
-    }
-    </style>
+      }
+  </style>
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-      {% load static %}
-    <img src="{% static 'News/N.png' %}" width="40" height="40" class="d-inline-block align-top" alt="">
-    News Reader
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'News:userchannel' %}">
+        {% load static %}
+        <img src="{% static 'News/N.png' %}" width="40" height="40" class="d-inline-block align-top" alt="">
+        News Reader
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-link">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-
-
-
-      <li class="nav-link">
-        <a class="nav-link" href="{% url 'News:list' %}">Add Channels <span class="sr-only">(current)</span></a>
-      </li>
-
-
-
-      <li class="nav-link">
-        <a class="nav-link" href="{% url 'News:userchannel' %}">My Channels <span class="sr-only">(current)</span></a>
-      </li>
-
- 	 <li class="nav-link">
-        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-      </li>
-         </ul>
-    <ul class="nav justify-content-center">
-
-	<li class="nav-item active navbar-nav mr-auto">
-        <a class="nav-link" href="{% url 'News:register' %}">Register <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item active navbar-nav mr-auto">
-        <a class="nav-link" href="{% url 'News:login' %}">Login <span class="sr-only">(current)</span></a>
-      </li>
-
-
-
-      <li class="nav-item active navbar-nav mr-auto">
-        <a class="nav-link" href="{% url 'News:logout' %}">Logout <span class="sr-only">(current)</span></a>
-      </li>
-
-
-
-    </ul>
-
-
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-link">
+              <a class="nav-link" href="{% url 'News:userchannel' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-link">
+              <a class="nav-link" href="{% url 'News:list' %}">Add Channels <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-link">
+              <a class="nav-link" href="{% url 'News:userchannel' %}">My Channels <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="nav justify-content-center">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item active navbar-nav mr-auto">
+                  <a class="nav-link" href="{% url 'News:logout' %}">
+                    Logout
+                    <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+          {% else %}
+            <li class="nav-item active navbar-nav mr-auto">
+                <a class="nav-link" href="{% url 'News:register' %}">
+                  Register
+                  <span class="sr-only">(current)
+                  </span>
+                </a>
+            </li>
+            <li class="nav-item active navbar-nav mr-auto">
+                <a class="nav-link" href="{% url 'News:login' %}">
+                  Login 
+                  <span class="sr-only">(current)</span>
+                </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
 </nav>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 {% block body %}
 {% endblock %}

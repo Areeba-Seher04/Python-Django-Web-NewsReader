@@ -2,107 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About</title>
+    <title>NewsReader|Detail</title>
 </head>
 <body>
-{% extends 'News/base.html' %}
-{% block body %}
+    {% extends 'News/base.html' %}
+    {% block body %}
 <style type="text/css">
-.jumbotron{
-height: 7rem;
-background-color:#8B0000;
-color:white;
-}
+    .jumbotron{
+    height: 7rem;
+    background-color:#8B0000;
+    color:white;
+    }
 </style>
 
-<h1><center>{{channel.channel_title}}</center></h1>
-
+<h1>
+    <center>{{channel.channel_title}}</center>
+</h1>
 
 <div class="container-fluid mt-0">
-  <div class="jumbotron">
-      <h1><center>LATEST NEWS</center></h1>
-  </div>
+    <div class="jumbotron">
+        <h1><center>LATEST NEWS</center></h1>
+    </div>
 </div>
-
-
-<div class="container py-3" >
-    <div class="card">
-      <div class="row ">
-        <div class="col-md-7">
-            <img src="{{I1}}" class="w-100 rounded" >
-          </div>
-          <div class="col-md-3 px-3">
-            <div class="card-block px-3">
-              <h5 class="card-title">{{N1}}</h5>
-              <h6 class="card-text">{{D1}}</h6>
-                <h6 class="card-text"> For detail visit this URL:  <a href="{{U1}}"> {{U3}} </a> </h6>
-<audio controls="" style="margin-left:auto;margin-right:auto;display;block;
-                height;100%;width:100%;">
-
-                    <source src="/media/TEXT.mp3"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
-                 <p class="card-text"><center>{{channel.channel_title}}</center></p>
-            </div>
-          </div>
-
-        </div>
+{% if dic %}
+    {% for channel in dic %}
+      <div class="container py-3" >
+            <div class="card">
+                <div class="row ">
+                    <div class="col-md-7">
+                        <img src="{{channel.urlToImage}}" class="w-100 rounded" >
+                    </div>
+                    <div class="col-md-3 px-3">
+                        <div class="card-block px-3">
+                            <h5 class="card-title">{{channel.title}}</h5>
+                            <h6 class="card-text">{{channel.description}}</h6>
+                            <h6 class="card-text"> 
+                                For detail visit this URL:  
+                                <a href="{{channel.url}}"> {{channel.url}} </a> 
+                            </h6>
+                            <audio controls="" style="margin-left:auto;margin-right:auto;display;block;
+                              height;100%;width:100%;">
+                                <source src={{channel.speechpath}}  type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                             <p class="card-text"><center>{{channel.channel_title}}</center></p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
       </div>
+    {% endfor %}
+{% else %}
+    <div class="container py-3" >
+      <h1> <center>News not found</center> </h1>
     </div>
-  </div>
+{% endif %}
 
-<div class="container py-3" >
-    <div class="card">
-      <div class="row ">
-        <div class="col-md-7">
-            <img src="{{I2}}" class="w-100 rounded">
-          </div>
-          <div class="col-md-3 px-3">
-            <div class="card-block px-3">
-              <h5 class="card-title">{{N2}}</h5>
-              <h6 class="card-text">{{D2}}</h6>
-                 <h6 class="card-text"> For detail visit this URL:  <a href="{{U2}}"> {{U3}} </a> </h6>
-<audio controls="" style="margin-left:auto;margin-right:auto;display;block;
-                height;100%;width:100%;">
-
-                    <source src="/media/TEXT1.mp3"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
-                 <p class="card-text"><center>{{channel.channel_title}}</center></p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="container py-3" >
-    <div class="card">
-      <div class="row ">
-        <div class="col-md-7">
-            <img src="{{I3}}" class="w-100 rounded">
-          </div>
-          <div class="col-md-3 px-3">
-            <div class="card-block px-3">
-              <h5 class="card-title">{{N3}}</h5>
-              <h6 class="card-text">{{D3}}</h6>
-                <h6 class="card-text"> For detail visit this URL:  <a href="{{U3}}"> {{U3}} </a> </h6>
-
-<audio controls="" style="margin-left:auto;margin-right:auto;display;block;
-                height;100%;width:100%;">
-
-                    <source src="/media/TEXT2.mp3"  type="audio/mpeg">
-                    Your browser does not support the audio element.
-            </audio>
-                 <p class="card-text"><center>{{channel.channel_title}}</center></p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 {% endblock %}
 </body>
 </html>
