@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 gtts = "*"
-django = "==2.1"
+django = "==2.2.24"
 
 [requires]
 python_version = "3.7"
